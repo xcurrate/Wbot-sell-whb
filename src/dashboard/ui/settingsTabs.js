@@ -263,6 +263,11 @@ module.exports = function createSettingsTabs({ escapeHtml }) {
                                 <input type="checkbox" name="hbAutoMode" ${huntbot.autoMode ? 'checked' : ''}>
                             </div>
                             <div class="toggle-row">
+                                <span>💰 wsell all (Sell & Skip Upgrade)</span>
+                                <input type="checkbox" name="hbAutoSellAll" ${huntbot.autoSellAll ? 'checked' : ''}>
+                            </div>
+                            <div class="input-hint">ON: setelah HuntBot dijemput, kirim <code>wsell all</code>, lewati <code>wsc all</code>/<code>wupg ...</code>, lalu langsung <code>whb 1D</code>. OFF: gunakan alur sacrifice + upgrade seperti biasa.</div>
+                            <div class="toggle-row">
                                 <span>Notify Progress</span>
                                 <input type="checkbox" name="hbNotify" ${huntbot.notifyProgress ? 'checked' : ''}>
                             </div>

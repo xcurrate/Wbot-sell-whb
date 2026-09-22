@@ -274,7 +274,12 @@ if (huntbotState.autoMode) {
         );
         
         if (huntbotState.autoMode) {
-            setTimeout(() => this.sacrificeAll(), 1000);
+            if (state.config?.huntbot?.autoSellAll) {
+                huntbotState.pendingAutoSell = true;
+                setTimeout(() => this.sellAll(), 1000);
+            } else {
+                setTimeout(() => this.sacrificeAll(), 1000);
+            }
         }
         
         return true;

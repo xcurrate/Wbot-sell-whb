@@ -20,7 +20,8 @@ module.exports = function createConfigManager({ configPath, fileService, CONSTAN
         config.delays = config.delays || {};
         config.safety = config.safety || { cctv: false };
         config.tiketandhb = config.tiketandhb || { channelId: "" };
-        config.huntbot = config.huntbot || { enabled: true, autoMode: true, defaultUpgrade: 'duration', defaultDuration: '1D', notifyProgress: true };
+        config.huntbot = config.huntbot || { enabled: true, autoMode: true, autoSellAll: false, defaultUpgrade: 'duration', defaultDuration: '1D', notifyProgress: true };
+        config.huntbot.autoSellAll = config.huntbot.autoSellAll === true;
 
         config.settings.twoCaptchaKey = config.settings.twoCaptchaKey || "";
         config.settings.control = config.settings.control || { start: 'wcash', pause: 'wbuy 1', allowIds: [] };
@@ -108,6 +109,7 @@ module.exports = function createConfigManager({ configPath, fileService, CONSTAN
 
         config.huntbot.enabled = this.toBool(body.hbEnabled);
         config.huntbot.autoMode = this.toBool(body.hbAutoMode);
+        config.huntbot.autoSellAll = this.toBool(body.hbAutoSellAll);
         config.huntbot.notifyProgress = this.toBool(body.hbNotify);
         config.huntbot.defaultUpgrade = body.hbUpgrade || 'duration';
         config.huntbot.defaultDuration = body.hbDuration || '1D';
